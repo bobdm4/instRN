@@ -16,7 +16,6 @@ class Login extends Component {
 
 	onSingIn() {
 		const { email, password } = this.state
-		console.log(email, password)
 		firebase
 			.auth()
 			.signInWithEmailAndPassword(email.trim(), password)

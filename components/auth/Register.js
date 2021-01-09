@@ -22,6 +22,11 @@ class Register extends Component {
 			.auth()
 			.createUserWithEmailAndPassword(email.trim(), password)
 			.then((result) => {
+				firebase
+					.firestore()
+					.collection('users')
+					.doc(firebase.auth().currentUser.uid)
+					.set({ name, email })
 				console.log(result)
 			})
 			.catch((error) => {
